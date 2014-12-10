@@ -34,6 +34,14 @@
     </ul>
 </template>
 
+<template name="userQuotes">
+    <ul>
+    {{#each quotes}}
+        {{>quote}}
+    {{/each}}  
+    </ul>
+</template>
+
 <template name="singleQuote">
     <ul>
         {{>quote}}
@@ -47,7 +55,7 @@
         <p>{{attribution}}</p>
         <p>{{source}}</p>
         <p>{{tags}}</p>
-        <p>by {{ownername}}</p>
+        <p>by <a href="/user/{{ownername}}">{{ownername}}</a></p>
         {{#if isOwner}}<button class="delete">&times;</button>{{/if}}
     </li>
 </template>

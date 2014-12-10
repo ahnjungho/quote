@@ -92,15 +92,15 @@ Router.route('/', function(){
 
 Router.route('/quote/:_id', function(){
   this.layout('base', {
-    waitOn: function() {
-      return Meteor.subscribe('quotes', this.params._id)
-    },
     data: function() { 
       return Quotes.findOne({_id: this.params._id})
-    },
-    action: function() {
-      if (this.ready()) this.render();
     }
   });
   this.render('singleQuote');
+});
+
+Router.route('/user/:username', function(){
+  this.layout('base');
+  var quotes = Quotes.find({ownername: this.params.username}, {sort: {createdAt: -1}});
+  this.render('userQuotes', {data: {quotes: quotes}});
 });
