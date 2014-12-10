@@ -14,14 +14,7 @@ if (Meteor.isClient) {
       var source = event.target.source.value;
       var tags = event.target.tags.value;
 
-      Quotes.insert({
-        text: text,
-        attribution: attribution,
-        source: source,
-        tags: tags,
-        createdAt: new Date(),
-        owner: Meteor.userId()
-      });
+      Meteor.call("addQuote", text, attribution, source, tags);
 
       event.target.text.value = "";
 
@@ -33,3 +26,20 @@ if (Meteor.isClient) {
     passwordSignupFields: "USERNAME_ONLY"
   });
 }
+
+Meteor.methods({
+  addQuote: function(text, attribution, source, tags){
+    if(! Meteor.userId()){
+      throw new Meteor.Error("not-authorized");
+    }
+
+    Quotes.insert({
+      text: text,
+      attribution: attribution,
+      source: source,
+      tags: tags,
+      createdAt: new Date(),
+      owner: Meteor.userId()
+    });
+  }
+})
