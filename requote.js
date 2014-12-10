@@ -27,6 +27,18 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.quote.helpers({
+    isOwner: function() {
+      return this.owner === Meteor.userId();
+    }
+  });
+
+  Template.quote.events({
+    "click .delete": function(event){
+      Meteor.call("deleteQuote", this._id);
+    } 
+  });
+
   Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
   });
@@ -46,6 +58,19 @@ Meteor.methods({
       createdAt: new Date(),
       owner: Meteor.userId()
     });
+  },
+  deleteQuote: function(quoteId){
+    if (! Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+
+    var quote = Quotes.findOne(quoteId);
+
+    if (Meteor.userId() !== quote.owner){
+      throw new Meteor.Error("not-authorized")
+    }
+
+    Quotes.remove(quoteId);
   }
 })
 
