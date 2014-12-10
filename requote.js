@@ -58,7 +58,20 @@ if (Meteor.isServer) {
 Router.route('/', function(){
   this.layout('base');
 
-  this.render('home', {
-    data: function() {return Quotes.find()}
+  this.render('home');
+})
+
+Router.route('/quote/:_id', function(){
+  this.layout('base', {
+    waitOn: function() {
+      return Meteor.subscribe('quotes', this.params._id)
+    },
+    data: function() { 
+      return Quotes.findOne({_id: this.params._id})
+    },
+    action: function() {
+      if (this.ready()) this.render();
+    }
   });
+  this.render('singleQuote');
 })

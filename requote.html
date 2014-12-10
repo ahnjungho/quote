@@ -6,7 +6,7 @@
 </body>
 
 <template name="base">
-    <h1>requote</h1>
+    <h1><a href="/">requote</a></h1>
 
     {{> loginButtons}}
 
@@ -34,8 +34,15 @@
     </ul>
 </template>
 
+<template name="singleQuote">
+    <ul>
+        {{>quote}}
+    </ul>
+</template>
+
 <template name="quote">
     <li>
+        <p><a href="/quote/{{_id}}">{{createdAt}}</a></p>
         <blockquote>{{text}}</blockquote>
         <p>{{attribution}}</p>
         <p>{{source}}</p>
