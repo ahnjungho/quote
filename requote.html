@@ -1,0 +1,24 @@
+<head>
+    <title>requote</title>
+</head>
+
+<body>
+    <h1>requote</h1>
+
+    <form class="new-quote">
+        <textarea name="text" placeholder="Quote"></textarea>
+        <input type="submit" name="Submit" />
+    </form>
+
+    <ul>
+    {{#each quotes}}
+        {{>quote}}
+    {{/each}}  
+    </ul>
+</body>
+
+<template name="quote">
+    <li>
+        <blockquote>{{text}}</blockquote>
+    </li>
+</template>
