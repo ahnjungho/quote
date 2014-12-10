@@ -3,13 +3,13 @@ Quotes = new Mongo.Collection("quotes");
 if (Meteor.isClient) {
   Meteor.subscribe("quotes");
 
-  Template.body.helpers({
+  Template.home.helpers({
     quotes: function(){
       return Quotes.find({}, {sort: {createdAt: -1}});
     }
   });
 
-  Template.body.events({
+  Template.home.events({
     "submit .new-quote": function(event){
       var text = event.target.text.value;
       var attribution = event.target.attribution.value;
@@ -19,6 +19,9 @@ if (Meteor.isClient) {
       Meteor.call("addQuote", text, attribution, source, tags);
 
       event.target.text.value = "";
+      event.target.attribution.value = "";
+      event.target.source.value = "";
+      event.target.tags.value = "";
 
       return false;
     }
@@ -51,3 +54,11 @@ if (Meteor.isServer) {
     return Quotes.find();
   });
 }
+
+Router.route('/', function(){
+  this.layout('base');
+
+  this.render('home', {
+    data: function() {return Quotes.find()}
+  });
+})
