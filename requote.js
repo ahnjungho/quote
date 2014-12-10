@@ -10,9 +10,15 @@ if (Meteor.isClient) {
   Template.body.events({
     "submit .new-quote": function(event){
       var text = event.target.text.value;
+      var attribution = event.target.attribution.value;
+      var source = event.target.source.value;
+      var tags = event.target.tags.value;
 
       Quotes.insert({
         text: text,
+        attribution: attribution,
+        source: source,
+        tags: tags,
         createdAt: new Date()
       });
 

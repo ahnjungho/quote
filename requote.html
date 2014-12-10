@@ -7,6 +7,9 @@
 
     <form class="new-quote">
         <textarea name="text" placeholder="Quote"></textarea>
+        <input type="text" name="attribution" placeholder="Unattributed" />
+        <input type="text" name="source" placeholder="Unsourced" />
+        <input type="text" name="tags" placeholder="No tags" />
         <input type="submit" name="Submit" />
     </form>
 
@@ -20,5 +23,8 @@
 <template name="quote">
     <li>
         <blockquote>{{text}}</blockquote>
+        <p>{{attribution}}</p>
+        <p>{{source}}</p>
+        <p>{{tags}}</p>
     </li>
 </template>
