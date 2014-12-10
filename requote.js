@@ -56,7 +56,8 @@ Meteor.methods({
       source: source,
       tags: tags,
       createdAt: new Date(),
-      owner: Meteor.userId()
+      owner: Meteor.userId(),
+      ownername: Meteor.user().username
     });
   },
   deleteQuote: function(quoteId){
