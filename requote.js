@@ -1,6 +1,8 @@
 Quotes = new Mongo.Collection("quotes");
 
 if (Meteor.isClient) {
+  Meteor.subscribe("quotes");
+
   Template.body.helpers({
     quotes: function(){
       return Quotes.find({}, {sort: {createdAt: -1}});
@@ -43,3 +45,9 @@ Meteor.methods({
     });
   }
 })
+
+if (Meteor.isServer) {
+  Meteor.publish("quotes", function(){
+    return Quotes.find();
+  });
+}
