@@ -19,12 +19,17 @@ if (Meteor.isClient) {
         attribution: attribution,
         source: source,
         tags: tags,
-        createdAt: new Date()
+        createdAt: new Date(),
+        owner: Meteor.userId()
       });
 
       event.target.text.value = "";
 
       return false;
     }
+  });
+
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
   });
 }

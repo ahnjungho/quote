@@ -5,6 +5,9 @@
 <body>
     <h1>requote</h1>
 
+    {{> loginButtons}}
+
+    {{#if currentUser}}
     <form class="new-quote">
         <textarea name="text" placeholder="Quote"></textarea>
         <input type="text" name="attribution" placeholder="Unattributed" />
@@ -12,6 +15,7 @@
         <input type="text" name="tags" placeholder="No tags" />
         <input type="submit" name="Submit" />
     </form>
+    {{/if}}
 
     <ul>
     {{#each quotes}}
@@ -26,5 +30,6 @@
         <p>{{attribution}}</p>
         <p>{{source}}</p>
         <p>{{tags}}</p>
+        <p>by {{owner}}</p>
     </li>
 </template>
