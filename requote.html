@@ -42,7 +42,7 @@
 
 <template name="quote">
     <li>
-        <p><a href="/quote/{{_id}}">{{createdAt}}</a></p>
+        <p><a href="/quote/{{_id}}">{{formatDate createdAt}}</a></p>
         <blockquote>{{text}}</blockquote>
         <p>{{attribution}}</p>
         <p>{{source}}</p>

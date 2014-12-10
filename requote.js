@@ -55,11 +55,14 @@ if (Meteor.isServer) {
   });
 }
 
+UI.registerHelper('formatDate', function(date){
+  return moment(date).format('ddd MMM D YYYY');
+});
+
 Router.route('/', function(){
   this.layout('base');
-
   this.render('home');
-})
+});
 
 Router.route('/quote/:_id', function(){
   this.layout('base', {
@@ -74,4 +77,4 @@ Router.route('/quote/:_id', function(){
     }
   });
   this.render('singleQuote');
-})
+});
