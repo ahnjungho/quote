@@ -9,13 +9,31 @@ a {
 }
 
 header {
-    padding-left: 30px;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
 }
 
 header h1 {
     /*font-weight: 300;*/
     font-family: Georgia, serif;
-    font-size: 2.5em;
+    /*font-size: 2.5em;*/
+    letter-spacing: 0.02em;
+    float: left;
+}
+
+header #login-buttons {
+    float: right;
+    /*margin-right: 30px;*/
+    margin-top: 2.5em;
+}
+
+header #login-buttons a {
+    text-decoration: none;
+}
+
+header #login-dropdown-list {
+    top: 30px;
+    left: -190px;
 }
 
 .main {
@@ -47,6 +65,32 @@ header h1 {
 footer {
     border-top: solid 1px #444;
     background-color: #2e2e2e;
-    text-align: center;
     padding: 1em 0;
+    padding-left: 2.5em;
+}
+
+@media screen and (max-width: 660px){
+    header {
+        width: 90%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .main > div {
+        width: 90%;
+    }
+
+    .main .ul-quotes .li-quote:first-child {
+        margin-top: 2em;
+    }
+
+    .main .ul-quotes .li-quote:last-child {
+        margin-bottom: 2em;
+    }
+
+    footer {
+        width: 90%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
