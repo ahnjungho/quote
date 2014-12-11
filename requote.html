@@ -6,14 +6,21 @@
 </body>
 
 <template name="base">
-    <h1><a href="/">requote</a></h1>
+    <header>
+        <h1><a href="/"><span style="font-weight:300; color:#aaa;">re</span>quote</a></h1>
 
-    {{> loginButtons}}
+        {{> loginButtons}}
+    </header>
 
-    <div>
-        {{> yield}}
-    </div>
+    <section class="main">
+        <div>
+            {{> yield}}
+        </div>
+    </section>
 
+    <footer>
+        <p>powered by requote</p>
+    </footer>
 </template>
 
 <template name="home">
@@ -27,7 +34,7 @@
     </form>
     {{/if}}
 
-    <ul>
+    <ul class="ul-quotes">
     {{#each quotes}}
         {{>quote}}
     {{/each}}  
@@ -35,7 +42,7 @@
 </template>
 
 <template name="userQuotes">
-    <ul>
+    <ul class="ul-quotes">
     {{#each quotes}}
         {{>quote}}
     {{/each}}  
@@ -43,19 +50,20 @@
 </template>
 
 <template name="singleQuote">
-    <ul>
+    <ul class="ul-quotes">
         {{>quote}}
     </ul>
 </template>
 
 <template name="quote">
-    <li>
+    <li class="li-quote">
         <p><a href="/quote/{{_id}}">{{formatDate createdAt}}</a></p>
-        <blockquote>{{text}}</blockquote>
-        <p>{{attribution}}</p>
-        <p>{{source}}</p>
+        <blockquote>
+            {{text}}
+            <p> - {{attribution}} {{#if source}}"{{source}}"{{/if}}</p>
+        </blockquote>
         <p>{{tags}}</p>
-        <p>by <a href="/user/{{ownername}}">{{ownername}}</a></p>
+        <p>Added by <a href="/user/{{ownername}}">{{ownername}}</a></p>
         {{#if isOwner}}<button class="delete">&times;</button>{{/if}}
     </li>
 </template>
