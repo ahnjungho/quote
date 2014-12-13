@@ -95,6 +95,15 @@ header #login-dropdown-list {
     padding-left: 1.2em;
 }
 
+.main .ul-quotes .li-quote button.delete {
+    background-color: #aaa;
+    color: #222;
+    border-style: none;
+    margin-top: 0.3em;
+    padding: 0.2em 0.5em;
+    border-radius: 0.4em;
+}
+
 footer {
     border-top: solid 1px #444;
     background-color: #2e2e2e;
@@ -111,6 +120,11 @@ footer {
 
     .main > div {
         width: 90%;
+    }
+
+    .main .new-quote textarea,
+    .main .new-quote input[type="text"] {
+        width: 96%;
     }
 
     .main .ul-quotes .li-quote:first-child {
