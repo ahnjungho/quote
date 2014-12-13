@@ -8,7 +8,7 @@
 
 <template name="base">
     <header class="clearfix">
-        <h1><a href="/"><span style="font-weight:300; color:#aaa;">re</span>quote</a></h1>
+        <h1><a href="/">quote</a></h1>
 
         {{> loginButtons}}
     </header>
@@ -20,13 +20,13 @@
     </section>
 
     <footer>
-        <p>powered by requote</p>
+        <p>Made by Ahn Jungho. This is toy project. Not maintained.</p>
     </footer>
 </template>
 
 <template name="home">
     {{#if currentUser}}
-    <form class="new-quote">
+    <form class="new-quote clearfix">
         <textarea name="text" placeholder="Quote"></textarea>
         <input type="text" name="attribution" placeholder="Unattributed" />
         <input type="text" name="source" placeholder="Unsourced" />

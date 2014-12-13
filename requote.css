@@ -46,6 +46,39 @@ header #login-dropdown-list {
     padding: 2em 0;
 }
 
+.main .new-quote textarea {
+    width: 100%;
+    height: 4em;
+    margin: 1em 0;
+    background-color: #333;
+    border-color: #222;
+    color: #aaa;
+    padding: 0.4em;
+}
+
+.main .new-quote input[type="text"] {
+    width: 100%;
+    margin: 0.3em 0;
+    padding: 0.4em;
+    background-color: #333;
+    color: #aaa;
+    border-color: #222;
+    border-top-style: none;
+    border-left-style: none; 
+    display: block;
+}
+
+.main .new-quote input[type="submit"] {
+    display: block;
+    float: right;
+    background-color: #aaa;
+    color: #222;
+    border-style: none;
+    margin-top: 0.3em;
+    padding: 0.5em;
+    border-radius: 0.4em;
+}
+
 .main .ul-quotes {
     padding-left: 0;
     list-style-type: none;
